@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <script>
+    function playerChoice() {
+        let player = prompt("Rock, Paper or Scissors?").toLowerCase();
+        if (player !== 'rock' && player !== 'paper' && player !== 'scissors') {
+        alert('Please choose Rock, Paper or Scissors')
+        player = prompt("Rock, Paper or Scissors?") 
+        } else
+        return player;
+    }
+	  let choices = ['Rock', 'Paper', 'Scissors'];
+    function computerPlay(choices) {
+        return choices[Math.floor(Math.random()*choices.length)];
+      }
+      const computerSelection = computerPlay(choices);
+    function singleRound(playerSelection, computerSelection) {
+      playerSelection = playerChoice()
+      computerSelection = computerPlay(choices);
+      if  (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
+        alert("Looser! Paper wraps rock!");
+      } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
+        alert("Winner! Rock smashes scissors ");
+      } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
+        alert("Winner! Paper wraps rock!");
+      } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
+        alert("Looser! Scissors cut paper!");
+      } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
+        alert("Winner! Scissors cut paper!");
+      } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
+        alert("Looser! Rock smashes scissors!")
+      } else {
+        alert("It's a draw! Play again");
+      } 
+    }
+    console.log(singleRound())
+ </script>
+</body>
+</html>
