@@ -7,10 +7,10 @@
   <script>
     function playerChoice() {
         let player = prompt("Rock, Paper or Scissors?").toLowerCase();
-        if (player !== 'rock' && player !== 'paper' && player !== 'scissors') {
+        while (player !== 'rock' && player !== 'paper' && player !== 'scissors') {
         alert('Please choose Rock, Paper or Scissors')
         player = prompt("Rock, Paper or Scissors?") 
-        } else
+        } 
         return player;
     }
 	  let choices = ['Rock', 'Paper', 'Scissors'];
