@@ -22,18 +22,25 @@
       playerSelection = playerChoice()
       computerSelection = computerPlay(choices);
       if  (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
+        alert("Opponent plays paper.");
         alert("Looser! Paper wraps rock!");
       } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
+        alert("Opponent plays scissors.");
         alert("Winner! Rock smashes scissors ");
       } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
+        alert("Opponent plays rock.");
         alert("Winner! Paper wraps rock!");
       } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
+        alert("Opponent plays scissors.");
         alert("Looser! Scissors cut paper!");
       } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
+        alert("Opponent plays paper.");
         alert("Winner! Scissors cut paper!");
       } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
+        alert("Opponent plays rock.");
         alert("Looser! Rock smashes scissors!")
       } else {
+        alert("Opponent plays " + computerSelection);
         alert("It's a draw! Play again");
       } 
     }
