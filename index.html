@@ -5,46 +5,81 @@
 </head>
 <body>
   <script>
+    let playerScore = 0;
+    let computerScore = 0;
+    let gamesCounter = 0;
+
+    //Player choice
     function playerChoice() {
         let player = prompt("Rock, Paper or Scissors?").toLowerCase();
         while (player !== 'rock' && player !== 'paper' && player !== 'scissors') {
-        alert('Please choose Rock, Paper or Scissors')
-        player = prompt("Rock, Paper or Scissors?") 
+        alert('Please choose Rock, Paper or Scissors');
+        player = prompt("Rock, Paper or Scissors?"); 
         } 
         return player;
     }
-	  let choices = ['Rock', 'Paper', 'Scissors'];
-    function computerPlay(choices) {
+
+    //The CPU move 
+    function computerPlay() {
+        let choices = ['Rock', 'Paper', 'Scissors'];
         return choices[Math.floor(Math.random()*choices.length)];
       }
-      const computerSelection = computerPlay(choices);
+
+    // A single round 
     function singleRound(playerSelection, computerSelection) {
-      playerSelection = playerChoice()
-      computerSelection = computerPlay(choices);
+      playerSelection = playerChoice();
+      computerSelection = computerPlay();
       if  (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
-        alert("Opponent plays paper.");
+        alert("CPU plays paper.");
         alert("Looser! Paper wraps rock!");
+        computerScore++;
+        gamesCounter++;
       } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
-        alert("Opponent plays scissors.");
+        alert("CPU plays scissors.");
         alert("Winner! Rock smashes scissors ");
+        playerScore++;
+        gamesCounter++
       } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
-        alert("Opponent plays rock.");
+        alert("CPU plays rock.");
         alert("Winner! Paper wraps rock!");
+        playerScore++;
+        gamesCounter++;
       } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
-        alert("Opponent plays scissors.");
+        alert("CPU plays scissors.");
         alert("Looser! Scissors cut paper!");
+        computerScore++;
+        gamesCounter++;
       } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
-        alert("Opponent plays paper.");
+        alert("CPU plays paper.");
         alert("Winner! Scissors cut paper!");
+        playerScore++;
+        gamesCounter++;
       } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
-        alert("Opponent plays rock.");
+        alert("CPU plays rock.");
         alert("Looser! Rock smashes scissors!")
+        computerScore++;
+        gamesCounter++;
       } else {
-        alert("Opponent plays " + computerSelection);
+        alert("CPU plays " + computerSelection);
         alert("It's a draw! Play again");
+        gamesCounter++;
       } 
     }
-    console.log(singleRound())
+    
+    //Running the full game
+    function game() {
+      while (gamesCounter < 5) {
+        singleRound();
+        alert("Round " + gamesCounter + ",   You: " + playerScore + " points, CPU: " + computerScore + " points.");
+      }
+      if (gamesCounter == 5 && playerScore > computerScore) {
+        alert("Congratulations, you are the winner!!");
+      } else if (gamesCounter == 5 && playerScore < computerScore) {
+        alert("Sorry, you have lost!");
+      } else if (gamesCounter == 5 && playerScore == computerScore) {
+        alert("Oh, that's a tie! Play again!");
+      }
+    }
  </script>
 </body>
 </html>
